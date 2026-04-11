@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Siddha Narayan Patra | SYSTEM_PORTFOLIO_V1.0</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary": "#003907",
+                        "primary-fixed-dim": "#00e639",
+                        "on-secondary-fixed": "#281800",
+                        "on-tertiary-fixed": "#002201",
+                        "on-surface-variant": "#b9ccb2",
+                        "on-surface": "#e5e2e1",
+                        "error": "#ffb4ab",
+                        "tertiary-container": "#7ff670",
+                        "on-error": "#690005",
+                        "on-error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#ffba43",
+                        "surface-bright": "#3a3939",
+                        "outline-variant": "#3b4b37",
+                        "surface-dim": "#131313",
+                        "on-primary-container": "#007117",
+                        "secondary": "#ffd393",
+                        "surface-container": "#201f1f",
+                        "secondary-fixed": "#ffddaf",
+                        "tertiary": "#eaffdf",
+                        "surface-tint": "#00e639",
+                        "on-secondary-container": "#694600",
+                        "tertiary-fixed-dim": "#69df5c",
+                        "primary-container": "#00ff41",
+                        "tertiary-fixed": "#85fd75",
+                        "error-container": "#93000a",
+                        "surface-container-high": "#2a2a2a",
+                        "on-secondary": "#432c00",
+                        "primary": "#ebffe2",
+                        "surface-container-low": "#1c1b1b",
+                        "on-background": "#e5e2e1",
+                        "inverse-on-surface": "#313030",
+                        "on-secondary-fixed-variant": "#614000",
+                        "surface-container-highest": "#353534",
+                        "surface": "#131313",
+                        "on-tertiary-fixed-variant": "#005306",
+                        "secondary-container": "#fdaf00",
+                        "on-tertiary": "#003a03",
+                        "outline": "#84967e",
+                        "on-primary-fixed-variant": "#00530e",
+                        "background": "#131313",
+                        "inverse-primary": "#006e16",
+                        "on-primary-fixed": "#002203",
+                        "inverse-surface": "#e5e2e1",
+                        "surface-variant": "#353534",
+                        "on-tertiary-container": "#00710b",
+                        "surface-container-lowest": "#0e0e0e",
+                        "primary-fixed": "#72ff70"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Space Grotesk"],
+                        "label": ["Space Grotesk"]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            background-color: #131313;
+            overflow-x: hidden;
+        }
+
+        .scanlines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%,
+                    rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg,
+                    rgba(255, 0, 0, 0.06),
+                    rgba(0, 255, 0, 0.02),
+                    rgba(0, 0, 150, 0.06));
+            background-size: 100% 4px, 3px 100%;
+            z-index: 100;
+            pointer-events: none;
+        }
+
+        .glow-text-primary {
+            text-shadow: 0 0 8px #00FF41;
+        }
+
+        .glow-text-secondary {
+            text-shadow: 0 0 8px #fdaf00;
+        }
+
+        .crt-flicker {
+            animation: flicker 0.15s infinite;
+        }
+
+        @keyframes flicker {
+            0% {
+                opacity: 0.985;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .glow-border-primary {
+            border: 1px solid rgba(0, 255, 65, 0.3);
+            box-shadow: 0 0 10px rgba(0, 255, 65, 0.1);
+        }
+
+        .glow-border-secondary {
+            border: 1px solid rgba(253, 175, 0, 0.3);
+            box-shadow: 0 0 10px rgba(253, 175, 0, 0.1);
+        }
+
+        .steps-4 {
+            transition-timing-function: steps(4);
+        }
+    </style>
+</head>
+
+<body class="font-body text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+    <div class="scanlines"></div>
+    <!-- TopAppBar -->
+    <header
+        class="bg-[#131313] text-[#00FF41] font-['Space_Grotesk'] uppercase tracking-widest text-sm fixed top-0 w-full border-b border-[#00FF41]/20 flex justify-between items-center px-6 h-14 w-full z-50 crt-flicker">
+        <div class="text-xl font-bold text-[#00FF41] drop-shadow-[0_0_4px_#00FF41]" style="">
+            SYS_PORTFOLIO_V1.0
+        </div>
+        <nav class="hidden md:flex gap-8">
+            <a class="text-[#00FF41]/60 hover:text-[#00FF41] hover:bg-[#00FF41] hover:text-[#131313] transition-all steps-4 px-2 py-1"
+                href="#about" style="">ABOUT</a>
+            <a class="text-[#00FF41]/60 hover:text-[#00FF41] hover:bg-[#00FF41] hover:text-[#131313] transition-all steps-4 px-2 py-1"
+                href="#skills" style="">SKILLS</a>
+            <a class="text-[#00FF41]/60 hover:text-[#00FF41] hover:bg-[#00FF41] hover:text-[#131313] transition-all steps-4 px-2 py-1"
+                href="#projects" style="">PROJECTS</a>
+            <a class="text-[#00FF41]/60 hover:text-[#00FF41] hover:bg-[#00FF41] hover:text-[#131313] transition-all steps-4 px-2 py-1"
+                href="#experience" style="">EXPERIENCE</a>
+        </nav><!--
+<div class="flex gap-4">
+<span class="material-symbols-outlined cursor-pointer hover:bg-[#00FF41] hover:text-[#131313] p-1 transition-all" style="">terminal</span>
+<span class="material-symbols-outlined cursor-pointer hover:bg-[#00FF41] hover:text-[#131313] p-1 transition-all" style="">settings_input_component</span>
+</div>-->
+    </header>
+    <main class="pt-24 pb-20 px-6 max-w-7xl mx-auto">
+        <!-- Hero Section -->
+        <section class="mb-24 flex flex-col items-start">
+            <div class="glow-border-primary p-8 w-full bg-surface-container-low/80 backdrop-blur-[4px]">
+                <div class="mb-4 text-secondary text-sm font-bold tracking-tighter uppercase" style="">[AUTH_USER:
+                    SIDDHA_NARAYAN_PATRA]</div>
+                <h1 class="text-5xl md:text-7xl font-bold glow-text-primary mb-6 leading-tight uppercase" style="">
+                    Siddha Narayan Patra
+                </h1>
+                <div class="text-xl md:text-2xl text-primary-container font-medium max-w-3xl" style="">
+                    &gt; AI ENGINEERING STUDENT<br>
+                    &gt; FULL-STACK DEVELOPER<br></div>
+                <div class="mt-8 flex gap-4">
+                    <a href="https://github.com/CandiedOutlaw763" target="_blank" rel="noopener noreferrer"
+                        class="inline-block px-6 py-3 border border-primary-container text-primary-container hover:bg-primary-container hover:text-on-primary transition-all steps-4 font-bold uppercase tracking-widest text-sm text-center">
+                        View GitHub Profile
+                    </a>
+
+                </div>
+            </div>
+        </section>
+        <!-- Bento Grid: About & Core Specs -->
+        <section class="grid grid-cols-1 md:grid-cols-12 gap-6 mb-24" id="about">
+            <!-- About Me -->
+            <div
+                class="md:col-span-8 glow-border-primary bg-surface-container-low/50 p-6 flex flex-col justify-between">
+                <div>
+                    <h2 class="text-primary-container text-2xl font-bold mb-6 flex items-center gap-2" style="">
+                        <span class="material-symbols-outlined" style="">person</span>
+                        USER_PROFILE.MD
+                    </h2>
+                    <p class="text-on-surface text-lg leading-relaxed mb-6" style="">I build, ship, and monetize. I'm
+                        Siddha Narayan Patra, a full-stack developer and AI student aggressively focused on launching
+                        micro-SaaS products. My current priority is building out a portfolio of software tools.</p>
+                    <p class="text-on-surface text-lg leading-relaxed mb-6" style="">
+                        From competitive programming to backend architecture, I operate on a strict "if it works, don't
+                        touch it" philosophy—reducing friction and shipping fast.</p>
+                    <p class="text-on-surface text-lg leading-relaxed mb-6" style="">
+                        When I'm taking a break from shipping code or practicing on Codeforces and HackerEarth, you can
+                        find me playing football, exploring wargames like Bandit on OverTheWire, or reading up on
+                        general relativity and cosmology.</p>
+                    <p class="text-on-surface text-lg leading-relaxed" style="">
+                        To me, fiction is just another form of architecture, and I am an avid reader of expansive,
+                        well-constructed narratives. I've always been captivated by deep world-building, spending
+                        countless hours immersed in the magical mechanics of <em>Harry Potter</em> and the modern
+                        mythologies across every series by Rick Riordan. At the same time, I deeply appreciate grounded,
+                        strategic storytelling centered on loyalty and power dynamics, making <em>The Godfather</em> one
+                        of my absolute favorites. Whether it's the politics of demigods or the calculated moves of a mob
+                        boss, I love dissecting a masterfully designed universe.
+                    </p>
+                </div>
+                <div class="mt-8 pt-6 border-t border-primary-container/20 font-mono text-xs text-primary-container/60"
+                    style="">
+                    LOC: ROURKELA, IN // LAT: 22.2535° N // LONG: 84.8828° E
+                </div>
+            </div>
+            <!-- Stats/Specs -->
+            <div class="md:col-span-4 glow-border-secondary bg-surface-container-low/50 p-6">
+                <h2 class="text-secondary text-2xl font-bold mb-6 flex items-center gap-2" style="">
+                    <span class="material-symbols-outlined" style="">analytics</span>
+                    SYSTEM_STATS
+                </h2>
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center border-b border-secondary/20 pb-2">
+                        <span class="text-secondary/60" style="">AGE</span>
+                        <span class="text-secondary font-bold" style="">19</span>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-secondary/20 pb-2">
+                        <span class="text-secondary/60" style="">STATUS</span>
+                        <span class="text-primary font-bold" style="">ACTIVE_STUDENT</span>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-secondary/20 pb-2">
+                        <span class="text-secondary/60" style="">INSTITUTE</span>
+                        <span class="text-secondary font-bold" style="">NITR</span>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-secondary/20 pb-2">
+                        <span class="text-secondary/60" style="">SPECIALTY</span>
+                        <span class="text-secondary font-bold" style="">AI_ENG</span>
+                    </div>
+                </div>
+                <div class="mt-10 aspect-square w-full glow-border-secondary flex items-center justify-center p-4">
+                    <img alt="Cybernetic aesthetic" class="w-full h-full object-cover object-top"
+                        data-alt="Monochrome green dithered image of a server rack with blinking lights and wiring in a dark data center"
+                        src="./assets/profile.jpeg" style="">
+                </div>
+            </div>
+        </section>
+        <!-- Technical Skills: Terminal Style -->
+        <section class="mb-24" id="skills">
+            <div class="glow-border-primary bg-surface-container-lowest p-6">
+                <h2 class="text-primary-container text-2xl font-bold mb-8 uppercase tracking-widest flex items-center gap-2"
+                    style="">
+                    <span class="material-symbols-outlined" style="">memory</span>
+                    TECHNICAL_ARSENAL
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <div>
+                        <div class="text-secondary mb-3 font-bold border-l-4 border-secondary pl-3 uppercase text-sm"
+                            style="">Languages</div>
+                        <ul class="space-y-2 text-on-surface font-mono">
+                            <li class="" style="">[001] Python</li>
+                            <li class="" style="">[002] C&nbsp;</li>
+                            <li class="" style="">[003] SQL</li>
+                            <li class="" style="">[004] JavaScript</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="text-secondary mb-3 font-bold border-l-4 border-secondary pl-3 uppercase text-sm"
+                            style="">Web Stack</div>
+                        <ul class="space-y-2 text-on-surface font-mono">
+                            <li class="" style="">[001] HTML5 / CSS3</li>
+                            <li class="" style="">[002] React / Tailwind</li>
+                            <li class="" style="">[003] Flask (Backend)</li>
+                            <li class="" style=""><br></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="text-secondary mb-3 font-bold border-l-4 border-secondary pl-3 uppercase text-sm"
+                            style="">Security</div>
+                        <ul class="space-y-2 text-on-surface font-mono">
+                            <li class="" style="">[001] Ethical Hacking</li>
+                            <li class="" style="">[002] Bandit Wargames</li>
+                            <li class="" style="">
+                                <ul class="space-y-2 text-on-surface font-mono"
+                                    style="--tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgb(59 130 246 / 0.5); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; --tw-contain-size: ; --tw-contain-layout: ; --tw-contain-paint: ; --tw-contain-style: ; --tw-text-opacity: 1; color: rgb(229, 226, 225);">
+                                    <li class="cursor-text" spellcheck="false" data-stitch-added-classes="cursor-text"
+                                        style="--tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgb(59 130 246 / 0.5); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; --tw-contain-size: ; --tw-contain-layout: ; --tw-contain-paint: ; --tw-contain-style: ; --tw-space-y-reverse: 0; margin-top: 8px; margin-bottom: 0px; outline: none !important;">
+                                        [003] Pen-Testing</li>
+                                </ul>
+                            </li>
+                            <li class="" style=""><br></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="text-secondary mb-3 font-bold border-l-4 border-secondary pl-3 uppercase text-sm"
+                            style="">Tools</div>
+                        <ul class="space-y-2 text-on-surface font-mono">
+                            <li class="" style="">[001] Git / GitHub</li>
+                            <li class="" style="">[002] Docker</li>
+                            <li class="" style="">[003] Linux (Ubuntu/Kali)</li>
+                            <li class="" style="">[004] VS Code</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Projects: Asymmetric Grid -->
+        <section class="mb-24" id="projects">
+            <h2 class="text-primary-container text-3xl font-bold mb-10 uppercase tracking-[0.2em]" style="">
+                Deployment_History</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project Card -->
+                <div
+                    class="group glow-border-primary p-0 flex flex-col bg-surface-container-low transition-all steps-4 hover:bg-surface-container-high">
+                    <div class="h-40 overflow-hidden relative border-b border-primary-container/20">
+                        <img alt="Blockchain interface"
+                            class="w-full h-full object-cover opacity-50 grayscale hover:opacity-80 transition-all"
+                            data-alt="Digital grid pattern with glowing nodes and data streams in emerald green and black palette"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAec17AAnOGX93FxEJVoZYAZM39PnuXmfqucBoIpcgN1XoQIEksBkV0gTwS1yTdpG5mrrZTb_vkFAlGOy-OioR5fZMY--pHHVprC_UY8EInQ_hwhyFkBXjLCSQD4REIMoq7Jc8d-NuRMG2kGCF-4a8q1Hs0z9BJuzfXYvolJIn-nmEVVQnhI2MU3h05WN5GJNgjEpSP-em_gXMUiodE_l_lp_GbsMFGPFbCLs6d62ThPaWaNpI4E0NVsKbrhnfc6WobAlPxFQsUGfVq"
+                            style="">
+                        <div class="absolute inset-0 bg-primary-container/10 mix-blend-overlay"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-primary-container text-xl font-bold mb-2" style="">MARKETFIT</h3>
+                        <p class="text-on-surface/80 text-sm mb-4" style="">Micro-SaaS dedicated to validating
+                            product-market fit using AI-driven analytics.</p>
+                        <div class="flex gap-2 text-[10px] text-secondary font-mono">
+                            <span class="px-2 py-1 border border-secondary/30" style="">SAAS</span>
+                            <span class="px-2 py-1 border border-secondary/30" style="">AI</span>
+                            <span class="px-2 py-1 border border-secondary/30" style="">PYTHON</span>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="group glow-border-primary p-0 flex flex-col bg-surface-container-low transition-all steps-4 hover:bg-surface-container-high">
+                    <div class="h-40 overflow-hidden relative border-b border-primary-container/20">
+                        <img alt="Server core"
+                            class="w-full h-full object-cover opacity-50 grayscale hover:opacity-80 transition-all"
+                            data-alt="Abstract macro photography of fiber optic cables and server components with cyan and green highlights"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCggcXRBag3_u1CeiiOHnOis2amMb1mVKqbuOKVT2QPEJ9pHzQfM2npEqZyV0wSaRvE9pKJI24Hi9jXhJDCwZ96FwIDAJd1YyLwSdHyFii0Pf3f56TJO0AaXwbsDOvzsGew65_rpk98q9qhBE6wWVkj3uW-PpI-6R7m2o1JoXbyZM4op--qq5xAQd7RfN-A6apsQx5ZNrv1oXsf2pZeCbsFHIdkZkt7Mrqq0Su2CTCU3w2fMSGD7bJUUoRY8Fiml1A_aFub1apEESYc"
+                            style="">
+                        <div class="absolute inset-0 bg-primary-container/10 mix-blend-overlay"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-primary-container text-xl font-bold mb-2" style="">TRACE</h3>
+                        <p class="text-on-surface/80 text-sm mb-4" style="">Open-source Intelligence Tool</p>
+                        <div class="flex gap-2 text-[10px] text-secondary font-mono">
+                            <span class="px-2 py-1 border border-secondary/30" style="">INFRA</span>
+                            <span class="px-2 py-1 border border-secondary/30" style="">FLASK</span>
+                            <span class="px-2 py-1 border border-secondary/30" style="">BACKEND</span>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="group glow-border-primary p-0 flex flex-col bg-surface-container-low transition-all steps-4 hover:bg-surface-container-high">
+                    <div class="h-40 overflow-hidden relative border-b border-primary-container/20">
+                        <img alt="Earth network"
+                            class="w-full h-full object-cover opacity-50 grayscale hover:opacity-80 transition-all"
+                            data-alt="Satellite imagery of earth at night with illuminated city networks in a dark digital aesthetic"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4uiywMbh7YiEd5SD5mB5PCVUQnY1Rs2R30GKpoYbaSN_5rx9S1lix2vRWsDi5VzeAgi4QzJliOlK06dXb8fITM19dxhsTZqRdN0wkmhQrwLPfxQULFl__wKWOAqthLCPzGkeLRffhnD0ZSzaOumBl6ZOVtUdxRhACNCY0B9axcWRXhwnbNgn9UUcjU614pbxHxoREMI_sYAmO4GU8mtRbCZSE-bev0RM0VqgcNXOUe7X_hcKnbH4hA27HzEeh0MaCtBs5MiXG65bX"
+                            style="">
+                        <div class="absolute inset-0 bg-primary-container/10 mix-blend-overlay"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-primary-container text-xl font-bold mb-2" style="">ALGOWHISPERER</h3>
+                        <p class="text-on-surface/80 text-sm mb-4" style="">An AI tutor for competitive programming
+                            logic.</p>
+                        <div class="flex gap-2 text-[10px] text-secondary font-mono">
+                            <span class="px-2 py-1 border border-secondary/30" style="">WINNER</span>
+                            <span class="px-2 py-1 border border-secondary/30" style="">GOOGLE</span>
+                            <span class="px-2 py-1 border border-secondary/30" style="">ML</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Additional Projects List -->
+            <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div
+                    class="bg-surface-container-lowest border-l-4 border-secondary p-4 flex justify-between items-center">
+                    <div>
+                        <div class="text-secondary font-bold" style="">SCRAPPY</div>
+                        <div class="text-xs text-on-surface/60" style="">Distributed Web Scraping Engine</div>
+                    </div>
+                    <span class="material-symbols-outlined text-secondary/40" style="">data_object</span>
+                </div>
+                <div
+                    class="bg-surface-container-lowest border-l-4 border-secondary p-4 flex justify-between items-center">
+                    <div>
+                        <div class="text-secondary font-bold" style="">TOTAL OVERLOAD</div>
+                        <div class="text-xs text-on-surface/60" style="">A 2D drone controller game made with PyGame
+                        </div>
+                    </div>
+                    <span class="material-symbols-outlined text-secondary/40" style="">video_settings</span>
+                </div>
+            </div>
+        </section>
+        <!-- Experience & Communities -->
+        <section class="mb-24" id="experience">
+            <h2 class="text-primary-container text-3xl font-bold mb-10 uppercase tracking-[0.2em]" style="">
+                Network_Nodes</h2>
+            <div class="space-y-6">
+                <!-- Community Item -->
+                <div
+                    class="flex flex-col md:flex-row gap-6 p-6 bg-surface-container-low/30 border border-primary-container/10">
+                    <div class="flex-shrink-0 w-16 h-16 glow-border-primary flex items-center justify-center text-primary-container font-black text-2xl"
+                        style="">
+                        GD
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-primary-container mb-1" style="">Google Developer Student
+                            Clubs (GDSC)</h3>
+                        <p class="text-secondary text-sm mb-3" style="">NIT ROURKELA // DEVELOPER</p>
+                        <p class="text-on-surface/80 max-w-2xl" style="">Actively contributing to the developer
+                            community at NITR, facilitating workshops on AI integration and modern web architectures.
+                        </p>
+                    </div>
+                </div>
+                <div
+                    class="flex flex-col md:flex-row gap-6 p-6 bg-surface-container-low/30 border border-primary-container/10">
+                    <div class="flex-shrink-0 w-16 h-16 glow-border-primary flex items-center justify-center text-primary-container font-black text-2xl"
+                        style="">
+                        OC
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-primary-container mb-1" style="">OpenCode</h3>
+                        <p class="text-secondary text-sm mb-3" style="">CYBERSECURITY WING&nbsp;</p>
+                        <p class="text-on-surface/80 max-w-2xl" style="">Deep diving into network security,
+                            vulnerability assessment, and participation in Capture The Flag (CTF) events.</p>
+                    </div>
+                </div>
+                <div
+                    class="flex flex-col md:flex-row gap-6 p-6 bg-surface-container-low/30 border border-primary-container/10">
+                    <div class="flex-shrink-0 w-16 h-16 glow-border-primary flex items-center justify-center text-primary-container font-black text-2xl"
+                        style="">
+                        AS
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-primary-container mb-1" style="">AstroNITR</h3>
+                        <p class="text-secondary text-sm mb-3" style="">ASTRONOMY + CONTENT TEAM MEMBER</p>
+                        <p class="text-on-surface/80 max-w-2xl" style="">Bridging the gap between astronomical
+                            observation and computational physics. Exploring cosmology through high-performance
+                            simulation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Beyond The Code -->
+        <section class="mb-24">
+            <h2 class="text-primary-container text-3xl font-bold mb-10 uppercase tracking-[0.2em]" style="">
+                Off_Clock_Processing</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Philosophy/Science -->
+                <div class="glow-border-secondary bg-surface-container-low/50 p-6 relative overflow-hidden">
+                    <h3 class="text-secondary text-xl font-bold mb-6" style="">Theoretical Interests</h3>
+                    <div class="space-y-4 relative z-10">
+                        <div class="flex items-start gap-3">
+                            <span class="text-secondary/50 font-mono" style="">[PH_01]</span>
+                            <div>
+                                <span class="text-on-surface font-bold" style="">Quantum Mechanics</span>
+                                <p class="text-xs text-on-surface/60" style="">Exploring the probabilistic nature of
+                                    subatomic reality.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="text-secondary/50 font-mono" style="">[PH_02]</span>
+                            <div>
+                                <span class="text-on-surface font-bold" style="">Cosmology</span>
+                                <p class="text-xs text-on-surface/60" style="">Large scale structure of the universe and
+                                    its thermal death.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="text-secondary/50 font-mono" style="">[PH_03]</span>
+                            <div>
+                                <span class="text-on-surface font-bold" style="">Information Theory</span>
+                                <p class="text-xs text-on-surface/60" style="">Entropy and its relationship with
+                                    physical intelligence.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute -right-10 -bottom-10 opacity-10">
+                        <span class="material-symbols-outlined text-9xl" style="">hub</span>
+                    </div>
+                </div>
+                <!-- Films/Hobbies -->
+                <div class="glow-border-primary bg-surface-container-low/50 p-6">
+                    <h3 class="text-primary-container text-xl font-bold mb-6" style="">Entertainment Modules</h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-surface-container-lowest p-3 border-l-2 border-primary-container">
+                            <div class="text-[10px] text-primary-container/60 mb-1" style="">FILM_PREFERENCE</div>
+                            <div class="text-sm font-bold" style="">Interstellar</div>
+                        </div>
+                        <div class="bg-surface-container-lowest p-3 border-l-2 border-primary-container">
+                            <div class="text-[10px] text-primary-container/60 mb-1" style="">FILM_PREFERENCE</div>
+                            <div class="text-sm font-bold" style="">Oppenheimer</div>
+                        </div>
+                        <div class="bg-surface-container-lowest p-3 border-l-2 border-primary-container">
+                            <div class="text-[10px] text-primary-container/60 mb-1" style="">FILM_PREFERENCE</div>
+                            <div class="text-sm font-bold" style="">Shutter Island</div>
+                        </div>
+                        <div class="bg-surface-container-lowest p-3 border-l-2 border-primary-container">
+                            <div class="text-[10px] text-primary-container/60 mb-1" style="">SPORT_ACTIVE</div>
+                            <div class="text-sm font-bold" style="">Football</div>
+                        </div>
+                    </div>
+                    <div class="mt-6 flex gap-4 overflow-x-auto pb-2">
+                        <div class="flex-shrink-0 w-24 h-32 glow-border-primary">
+                            <img alt="Galaxy" class="w-full h-full object-cover grayscale brightness-50 contrast-125"
+                                data-alt="Deep space nebula in vibrant greens and deep blacks with distant twinkling stars"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfamSDn8wCKKpobRwlfaukn2ACsLTcJ0CqpF_W2-XAMwRBYNXwMq83x3VIvGCHuR2C38VutTRA9RdTkn-9tZdShes_DYmwJH-4UJ-HCKUj54tErxVWFTa53sYAPlicHeBK3AI9kCkGPF8qKAphmHQwD7ugEq3BPvjCTejwNVM6qI8Z49-ejzGv6udJ0etz7rCESp-x4Nh6BUwYzA2vKh2Uk_7xPWuptTlXpS0jYGboPesersHZuzTCrH55YTv-iHXGw8CLcvC8nwuX"
+                                style="">
+                        </div>
+                        <div class="flex-shrink-0 w-24 h-32 glow-border-primary">
+                            <img alt="Tech hardware"
+                                class="w-full h-full object-cover grayscale brightness-50 contrast-125"
+                                data-alt="Close up of vintage computer circuits and vacuum tubes with a warm amber glow"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0758t8H_pcaEz5E6LMAg7Lwa0yFpi93hglq-Tf_t26sx8wuqm4CnuIVOSBNL8OWg0YeEeXU_pUUsK6FyWqBYXss6bN5MDe4gD13QjVgjcm9RcDiBalaEPzTrOgPjMXQoFF70NRSuCWgfw1IpjOi7ktc41nLQRS13-ddw9ePzdIX2FRr9JvxDljvhS-nGKvbUc_wpCLRhDmKnrR8QQY-ikD5oTiwrJ1TcPt7PphP5EUeBZGUt_I8-6J_gZPoa17YBO4S1nBTWpqMy1"
+                                style="">
+                        </div>
+                        <div class="flex-shrink-0 w-24 h-32 glow-border-primary">
+                            <img alt="Stadium" class="w-full h-full object-cover grayscale brightness-50 contrast-125"
+                                data-alt="Aerial view of a football stadium pitch at night under bright floodlights in high contrast"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHK5Bv5HN0RVV4IE5aPDQFA7TQoPmSmSnFjsuXsBzoutxnU2KLzf5JQhty27XDE9p88pP6JyvYPTtmk83RDy3oNjCvcJi7xXq66wbxj_3dppq1G3Rhrnq5XEjsRdq6ms1TRS4b4FmLU5gaOl0x9LRi7jjTiFTBXcKe8qWVOuRaqwXJRYCSUDTfYAyYKHi1QBDcoJh4c-qxq4vtxIYND99Tc7PL-8Q5USWWD7GXlRKKvb-CoUbznMbXzGRoImaCPkwjBMa-30Vf90tE"
+                                style="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Final Contact CTA -->
+        <section class="mb-24 text-center">
+            <div class="max-w-xl mx-auto py-12 px-6 glow-border-primary bg-surface-container-lowest">
+                <h2 class="text-primary-container text-2xl font-bold mb-4 uppercase" style="">Initialize_Session?</h2>
+                <p class="text-on-surface/80 mb-8" style="">System is awaiting input. Open to collaborations on AI
+                    Research, Cybersecurity, or Micro-SaaS development.</p>
+                <div class="flex justify-center gap-6">
+                    <a class="text-primary-container hover:text-white transition-all" href="#" style="">
+                        <span class="material-symbols-outlined text-4xl" style="">mail</span>
+                    </a>
+                    <a class="text-primary-container hover:text-white transition-all" href="#" style="">
+                        <span class="material-symbols-outlined text-4xl" style="">terminal</span>
+                    </a>
+                    <a class="text-primary-container hover:text-white transition-all" href="#" style="">
+                        <span class="material-symbols-outlined text-4xl" style="">share</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer
+        class="bg-[#0e0e0e] text-[#fdaf00] font-['Space_Grotesk'] text-[10px] tracking-tighter fixed bottom-0 w-full h-6 border-t border-[#fdaf00]/20 flex justify-between items-center px-4 w-full z-50 opacity-90 crt-flicker">
+        <div class="text-[#fdaf00] font-black uppercase" style="">
+            [SYSTEM_READY] USER:ANON_GHOST // STATUS:ONLINE
+        </div>
+        <div class="flex gap-6">
+            <span class="hover:text-white cursor-default uppercase" style="">LATENCY: 24MS</span>
+            <span class="hover:text-white cursor-default uppercase" style="">UPTIME: 99.9%</span>
+            <span class="hover:text-white cursor-default uppercase" style="">RAM: 32GB_ALLOCATED</span>
+        </div>
+    </footer>
+</body>
+
+</html>
